@@ -6,6 +6,8 @@ Laravel CMS com mongodb e vuejs
 3. `$ sudo chmod -R 777 storage/ bootstrap/`
 4. **Criar o banco e configurar seu .env**
 5. `$ composer install`
+6. `$ php artisan migrate`
+7. `$ php artisan db:seed` 
 
 ----------
 ## Configurou seu ambiente? Pronto!
