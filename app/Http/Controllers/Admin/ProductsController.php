@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Routing\Controller as BaseController;
-use App\Models\User;
+use App\Models\Product;
 
-class TestController extends BaseController
+class ProductsController extends BaseController
 {
     public function __constructor()
     {

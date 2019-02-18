@@ -11,9 +11,19 @@
 |
 */
 
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
+    Route::get('/', function() {
+        return 'rota com privilegios';  
+     });
+
+    Route::get('products', function() {
+       return 'rota com privilegios';  
+    });
+});
 
 Route::get('/', 'TestController@index');
 Route::get('add-user-test', 'TestController@addUser');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

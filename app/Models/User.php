@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -10,6 +10,7 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 class User extends Authenticatable
 {
     use Notifiable;
+    
     protected $connection = 'mongodb';
     protected $collection = 'users';
     protected $primary    = 'id';
