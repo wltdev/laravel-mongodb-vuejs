@@ -11,5 +11,19 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+mix
+   // admin js
+   .js([
+      'node_modules/bootstrap/dist/js/bootstrap.min.js',
+      'resources/assets/js/admin/admin.js'
+   ], 'public/js/admin.min.js')
+   // admin CSS 
+   .sass('resources/assets/sass/admin.scss', 'public/css')
+   .combine([
+      'node_modules/bootstrap/dist/css/bootstrap.min.css',
+      'public/css/admin.css'
+   ], 'public/css/admin.min.css')
+
+;
+
+

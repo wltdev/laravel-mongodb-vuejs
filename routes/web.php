@@ -14,7 +14,9 @@
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::get('/', function() {
         return 'rota com privilegios';  
-     });
+    });
+
+    Route::resource('users', 'Admin\UsersController');
 
     Route::get('products', function() {
        return 'rota com privilegios';  
