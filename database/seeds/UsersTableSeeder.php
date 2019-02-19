@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Maklad\Permission\Models\Role;
 use App\Models\User;
 
 class UsersTableSeeder extends Seeder

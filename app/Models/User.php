@@ -6,10 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use Maklad\Permission\Traits\HasRoles;
  
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasRoles;
     
     protected $connection = 'mongodb';
     protected $collection = 'users';

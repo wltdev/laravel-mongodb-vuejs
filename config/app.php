@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         // MongoDB
         Jenssegers\Mongodb\MongodbServiceProvider::class,
+        // Users Permissions for MongoDB
+        Maklad\Permission\PermissionServiceProvider::class,
 
     ],
 
