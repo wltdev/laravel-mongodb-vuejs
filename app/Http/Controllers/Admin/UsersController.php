@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\User as UserRequest;
 use Maklad\Permission\Models\Role;
 use App\Models\User;
-use Session;
+use Session, Response;
 
 class UsersController extends BaseController
 {   
@@ -57,20 +57,17 @@ class UsersController extends BaseController
     public function store(UserRequest $request)
     {
         $input = $request->all();
-        dd($input);
         try {
             $user = User::create($input);
             // set user role
-            if(isset($input['role']) && (!empty($input['role'])))
-                $user->assignRole($input['role']);  
-
-            Session::flash('alert-success', 'data inserted successfully' );
+            if ( isset($input['role']) && (!empty($input['role'])) )
+            $user->assignRole($input['role']);  
+        
         } catch (\Exception $e) {
-            Session::flash('alert-danger', 'error to insert data' );
-            return redirect()->back()->withInput();
+            return Response::json($e->getMessages());    
         }
-
-        return redirect($this->controller->route);
+        
+        return Response::json(['success' => true]);    
     }
 
 

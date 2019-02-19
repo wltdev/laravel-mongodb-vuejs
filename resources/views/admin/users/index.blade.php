@@ -5,7 +5,10 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">{{ $controller->title or 'Title' }} </h4>
+                    <h4 class="card-title">{{ $controller->title }} </h4>
+                    <span class="pull-right">
+                        @include('admin._partials.store_button')
+                    </span>
                 </div>
 
                 <div class="card-content">
