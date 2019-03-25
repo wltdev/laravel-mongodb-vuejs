@@ -16,7 +16,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
         return 'rota com privilegios';  
     });
 
-    Route::resource('users', 'Admin\UsersController');
+    Route::group(['prefix' => 'users'], function() {
+        Route::get('/', 'Admin\UsersController@index');
+        Route::post('/', 'Admin\UsersController@store');
+        Route::get('create', 'Admin\UsersController@create');
+        Route::get('get-collection', 'Admin\UsersController@getCollection');
+
+        Route::get('/{id}', 'Admin\UsersController@show');
+    });
 
     Route::get('products', function() {
        return 'rota com privilegios';  

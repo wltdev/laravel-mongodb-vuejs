@@ -25,13 +25,31 @@ class UsersController extends BaseController
     }
 
     public function index()
-    {
-        $collection = User::all();
-
+    {  
         return view($this->controller->folder.'index', [
-            'collection' => $collection,
             'controller' => $this->controller
         ]);
+    }
+
+    public function getCollection()
+    {
+        try {
+            $collection = User::all();   
+            $collection = $this->formatCollection( $collection );
+        } catch (\Exception $e) {
+            return Response::json($e->getMessages());    
+        }
+        
+        return Response::json($collection); 
+    }
+
+    protected function formatCollection( $collection ) 
+    {
+        foreach ( $collection as $item ) {
+            $item->url = url('admin/users/'.$item->_id);
+        }
+
+        return $collection;
     }
 
     public function create()

@@ -12,7 +12,7 @@
 
                 <div class="card-content">
                     <div class="clearfix">
-                        <form action="{{ url( $controller->route.$collection->_id ) }}" class="form-horizontal">
+                        <form action="{{ url( $controller->route.$collection->id ) }}" class="form-horizontal">
                             @include($controller->folder.'form')
                             <hr />
                             <button type="submit" class="btn btn-warning btn-submit pull-right" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Registrando...">
